@@ -14,3 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/index', function () {
+    return view('index'); //ova e samo za testiranje bez kontroler, za vo momentov
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
