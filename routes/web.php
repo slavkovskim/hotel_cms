@@ -42,4 +42,14 @@ Route::get('/cms/index', function () {
 //about us
 Route::get('/cms/about_us/index', 'About_usController@index')->name('/cms/about_us/index');
 Route::get('/cms/about_us/update_about_us', 'About_usController@update')->name('/cms/about_us/update_about_us');
+
+//news
+Route::get('/cms/news/index', 'NewsController@index')->name('/cms/news/index');
+Route::get('/cms/news/update_news', 'NewsController@update')->name('/cms/news/update_news');
+
+//employees
+
+Route::get('/cms/employees/index', 'EmployeesController@index')->name('/cms/employees/index');
+Route::get('/cms/employees/edit_employee/{id}', 'EmployeesController@edit')->name('/cms/employees/edit_employee');
+
 //RUTI ZA INSERT,EDIT I DELETE ZA SITE.

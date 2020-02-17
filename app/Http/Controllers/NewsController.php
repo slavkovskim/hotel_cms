@@ -14,7 +14,10 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::find('5'); //or get()?
+        $data = compact('news');
+        return view ('/cms/news/index', $data);
+
     }
 
     /**
@@ -69,7 +72,17 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        //
+        $id_news = request('id_news');
+        $news = News::find($id_news);
+        $news->title = request('title');
+        $news->description = request('description');
+
+        //tuka ima za slikata
+
+
+        $news->save();
+
+        return redirect('/cms/news/index');
     }
 
     /**

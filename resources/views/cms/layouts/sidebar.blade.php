@@ -17,28 +17,30 @@
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('/cms/news/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>News</span></a>
     </li>
-
+<!--
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{ route('/cms/employees/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Employees</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href=" route('/cms/clients/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Clients</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{ route('/cms/rooms/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Rooms</span></a>
     </li>
+-->
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
