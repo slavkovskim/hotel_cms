@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -14,10 +19,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::find('5'); //or get()?
-        $data = compact('news');
-        return view ('/cms/news/index', $data);
+//        $news = News::all(); //or get()?
+//        $data = compact('news');
+//        return view ('/cms/news/index', $data);
 
+        $news = News::orderBy('created_at', 'desc')->paginate(5);
+        return view('/cms/news/index')->with('news', $news);
     }
 
     /**
@@ -27,7 +34,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('/cms/news/create_news');
     }
 
     /**
@@ -38,7 +46,31 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator      =   Validator::make($request->all(),
+            ['filename'      =>   'required|mimes:jpeg,png,jpg,bmp|max:2048']);
+
+        // if validation fails
+        if($validator->fails()) {
+            return back()->withErrors($validator->errors());
+        }
+
+        if ($request->hasFile('file')) {
+
+            $cover = $request->file('file');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
+
+            $news = new News();
+            $news->title = request('name');
+            $news->description = request('description');
+            $news->cover_image = $cover->getFilename() . '.' . $extension;
+
+            $news->save();
+
+        }
+        else{ //default cover picture if user doesn't upload image
+
+        }
     }
 
     /**
@@ -58,9 +90,10 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(News $news)
+    public function edit($id)
     {
-        //
+        $news = News::find($id);
+        return view('/cms/news/edit_news')->with('news', $news);
     }
 
     /**

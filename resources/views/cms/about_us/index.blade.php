@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('/ckeditor/samples/js/sample.js') }}"></script>
 @include('cms.layouts.head')
 
 <body id="page-top">
@@ -32,8 +34,11 @@
                     @csrf
                     <input type="hidden" name="id_about_us" value="{{ $about_us->id }}" >
                     <input class="form-control" name="title" value="{{ $about_us->title }}" >
-                    <textarea class="form-control" name="description">
-                    {{ $about_us->description }}
+
+                    <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
+                              spellcheck="true"
+                              placeholder="">
+                     {{ $about_us->description }}
                 </textarea>
                     <input class="btn btn-success" type="submit" value="Submit" >
                 </form>

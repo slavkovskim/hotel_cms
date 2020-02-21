@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('/ckeditor/samples/js/sample.js') }}"></script>
 @include('cms.layouts.head')
 
 <body id="page-top">
@@ -28,16 +30,36 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
                     <h1 class="h3 mb-0 text-gray-800">News</h1>
                 </div>
-                <form action="{{ route('/cms/news/update_news') }}" method="">
-                    @csrf
-                    <input type="hidden" name="id_news" value="{{ $news->id }}" >
-                    <input class="form-control" name="title" value="{{ $news->title }}" >
-                    <textarea class="form-control" name="description">
-                    {{ $news->description }}
-                </textarea>
-                    <input class="btn btn-success" type="submit" value="Submit" >
-                </form>
 
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+                    <a href="{{ route('/cms/news/create_news') }}">
+                        <input class="btn btn-success" type="button" name="edit" value="Create a new post" >
+                    </a>
+                </div>
+
+                <div class="row">
+
+                @foreach($news as $new)
+            <div class="col-md-3 text-center">
+                <img src="">
+                <label style="height: 50px;" class="text-center">{{$new->title}}</label>
+                <div class="row">
+            <div class="col-md-6">
+                    <a href="{{ asset('/cms/news/edit_news').'/'.$new->id }}">
+                        <input class="btn btn-warning" type="button" name="edit" value="Edit" style="width:100%;" >
+                    </a>
+            </div>
+
+                <div class="col-md-6">
+{{--                    <a href="{{ asset('/cms/employees/delete_news').'/'.$new->id.'/'.$employee->user_id }}">--}}
+                        <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
+                    </a>
+                </div>
+                </div>
+            </div>
+                @endforeach
+            </div>
 
                 <!-- Content Row -->
 
