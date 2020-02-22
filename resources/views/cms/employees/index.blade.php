@@ -52,7 +52,7 @@
                         <tbody>
                         @foreach($employees as $employee)
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">{{$employee->id}}</th>
                                 <td>{{$employee->name}}</td>
                                 <td>{{$employee->surname}}</td>
                                 <td>

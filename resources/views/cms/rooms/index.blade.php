@@ -28,38 +28,38 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">News</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Rooms</h1>
                 </div>
 
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
-                    <a href="{{ route('/cms/news/create_news') }}">
-                        <input class="btn btn-success" type="button" name="edit" value="Create a new post" >
+                    <a href="{{ route('/cms/rooms/create_rooms') }}">
+                        <input class="btn btn-success" type="button" name="edit" value="Create a new room" >
                     </a>
                 </div>
 
                 <div class="row">
 
-                    @foreach($news as $new)
+                    @foreach($rooms as $room)
                         <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             <div class="col-md-12">
-                                <img class="" style="height: 200px" src="{{url('uploads/'.$new->cover_image)}}">
+                                <img class="" style="height: 200px" src="{{url('uploads/'.$room->cover_image)}}">
                             </div>
-                            <h5 style="height: 50px;" class="text-center">{{$new->title}}</h5>
+                            <h5 style="height: 50px;" class="text-center">{{$room->title}}</h5>
                             <div class="row">
                                 <div class="col-md-6" >
 
-                                    <a href="{{ asset('/cms/news/edit_news').'/'.$new->id }}">
+                                    <a href="{{ asset('/cms/news/edit_news').'/'.$room->id }}">
                                         <input class="btn btn-warning" type="button" name="edit" value="Edit" style="width:100%;" >
                                     </a>
                                 </div>
 
                                 <div class="col-md-6">
-                                           <a href="{{ asset('/cms/news/delete_news').'/'.$new->id}}">
-                                    <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
-                                           </a>
+                                    <a href="{{ asset('/cms/news/delete_news').'/'.$room->id}}">
+                                        <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
+                                    </a>
                                 </div>
                             </div>
                         </div>

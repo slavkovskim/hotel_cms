@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\News;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -19,9 +18,6 @@ class NewsController extends Controller
      */
     public function index()
     {
-//        $news = News::all(); //or get()?
-//        $data = compact('news');
-//        return view ('/cms/news/index', $data);
 
         $news = News::orderBy('created_at', 'desc')->paginate(5);
         return view('/cms/news/index')->with('news', $news);
@@ -34,7 +30,6 @@ class NewsController extends Controller
      */
     public function create()
     {
-
         return view('/cms/news/create_news');
     }
 
@@ -46,31 +41,30 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $validator      =   Validator::make($request->all(),
-            ['filename'      =>   'required|mimes:jpeg,png,jpg,bmp|max:2048']);
+        $blog = new News();
 
-        // if validation fails
-        if($validator->fails()) {
-            return back()->withErrors($validator->errors());
-        }
-
-        if ($request->hasFile('file')) {
+        if($request->hasFile('file')) {
 
             $cover = $request->file('file');
             $extension = $cover->getClientOriginalExtension();
             Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
+            $blog->cover_image = $cover->getFilename() . '.' . $extension;
+            $blog->title = request('title');
+            $blog->description = request('description');
+            $blog->save();
 
-            $news = new News();
-            $news->title = request('name');
-            $news->description = request('description');
-            $news->cover_image = $cover->getFilename() . '.' . $extension;
-
-            $news->save();
 
         }
-        else{ //default cover picture if user doesn't upload image
+        else
+        {
+            $blog->title = request('title');
+            $blog->description = request('description');
+            $blog->save();
+
 
         }
+        return \redirect('/cms/news/index');
+
     }
 
     /**
@@ -92,6 +86,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
+        //
         $news = News::find($id);
         return view('/cms/news/edit_news')->with('news', $news);
     }
@@ -105,17 +100,33 @@ class NewsController extends Controller
      */
     public function update(Request $request, News $news)
     {
-        $id_news = request('id_news');
-        $news = News::find($id_news);
-        $news->title = request('title');
-        $news->description = request('description');
+        $news_id = request('id_news');
+        $blog = News::find($news_id);
 
-        //tuka ima za slikata
+//        $blog = new News();
+
+        if($request->hasFile('file')) {
+
+            $cover = $request->file('file');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
+            $blog->cover_image = $cover->getFilename() . '.' . $extension;
+            $blog->title = request('title');
+            $blog->description = request('description');
+            $blog->save();
 
 
-        $news->save();
+        }
+        else
+        {
+            $blog->title = request('title');
+            $blog->description = request('description');
+            $blog->save();
 
-        return redirect('/cms/news/index');
+
+        }
+        return \redirect('/cms/news/index');
+
     }
 
     /**
@@ -124,8 +135,9 @@ class NewsController extends Controller
      * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy($id)
     {
-        //
+        DB::table('news')->where('id', '=', $id)->delete();
+        return redirect('/cms/news/index');
     }
 }

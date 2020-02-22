@@ -18,7 +18,7 @@ class EmployeesController extends Controller
     {
         $employees = Employees::all();
         $data = compact('employees');
-        return view('/cms/employees/index', $data);
+        return view('/cms/employees/index' ,$data);
     }
 
     /**
@@ -101,7 +101,6 @@ class EmployeesController extends Controller
      */
     public function update(Request $request, Employees $employees)
     {
-
         $user_id = request('user_id');
         $employe_id = request('employe_id');
         if(request('password')!=null)
@@ -120,7 +119,7 @@ class EmployeesController extends Controller
             $employee->works_at = request('works_at');
             $employee->gender = request('gender');
             $employee->save();
-            return redirect('/cms/employees/index');
+            return redirect('/employees/index');
         }
         else{
 

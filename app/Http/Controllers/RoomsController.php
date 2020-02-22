@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Rooms;
+use App\Rooms_Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class RoomsController extends Controller
 {
@@ -15,6 +20,8 @@ class RoomsController extends Controller
     public function index()
     {
         $rooms = Rooms::all();
+        return view('/cms/rooms/index')->with('rooms', $rooms);
+
     }
 
     /**
@@ -24,7 +31,7 @@ class RoomsController extends Controller
      */
     public function create()
     {
-        //
+        return view('/cms/rooms/create_rooms');
     }
 
     /**
@@ -35,7 +42,35 @@ class RoomsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $room = new Rooms();
+
+        if($request->hasFile('file')) {
+
+            $cover = $request->file('file');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
+            $room->cover_image = $cover->getFilename() . '.' . $extension;
+
+            $room->description = request('description');
+            $room->room_type = request('room_type');
+            $room->beds_number = request('beds_number');
+            $room->price = request('price');
+            $room->save();
+
+
+        }
+        else
+        {
+
+            $room->description = request('description');
+            $room->room_type = request('room_type');
+            $room->beds_number = request('beds_number');
+            $room->price = request('price');
+            $room->save();
+
+
+        }
+        return \redirect('/cms/rooms/index');
     }
 
     /**
@@ -81,5 +116,38 @@ class RoomsController extends Controller
     public function destroy(Rooms $rooms)
     {
         //
+    }
+    public function gallery($id)
+    {
+        $rooms_gallery = DB::select(DB::raw(
+            "SELECT * FROM `rooms_gallery` WHERE id_room=$id"
+        ));
+        $room_id = $id;
+
+        $data = compact('rooms_gallery','room_id');
+        return view('/cms/rooms/gallery', $data);
+    }
+    public function store_image(Request $request){
+        if($request->hasfile('file'))
+        {
+
+            $id_room = request('id_room');
+            $files = $request->file('file');
+            foreach($files as $image)
+            {
+
+                $extension = $image->getClientOriginalExtension();
+                Storage::disk('public')->put($image->getFilename() . '.' . $extension, File::get($image));
+                $imageName = $image->hashName();
+
+                $room_gallery = new Rooms_Gallery();
+                $room_gallery->id_room = $id_room;
+                $room_gallery->image = $image->getFilename() . '.' . $extension;;
+
+                $room_gallery->save();
+            }
+        }
+
+        return redirect('cms/rooms/gallery/'.$id_room);
     }
 }

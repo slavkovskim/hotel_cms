@@ -29,13 +29,13 @@
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('/cms/clients/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Clients</span></a>
     </li>
 
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{ route('/cms/rooms/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Rooms</span></a>
     </li>

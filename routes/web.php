@@ -52,14 +52,30 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/cms/employees/update_employee', 'EmployeesController@update')->name('/cms/employees/update_employee');
     Route::get('/cms/employees/delete_employee/{id}/{id_2}', 'EmployeesController@destroy')->name('/cms/employees/delete_employee');
 
-//index, instert, edit, delete   always most important
+//Clients
+    Route::get('/cms/clients/index', 'ClientsController@index')->name('/cms/clients/index');
+    Route::get('/cms/clients/create_client', 'ClientsController@create')->name('/cms/clients/create_client');
+    Route::post('/cms/clients/store_client', 'ClientsController@store')->name('/cms/clients/store_client');
+    Route::get('/cms/clients/edit_client/{id}', 'ClientsController@edit')->name('/cms/clients/edit_client');
+    Route::post('/cms/clients/update_client', 'ClientsController@update')->name('/cms/clients/update_client');
+    Route::get('/cms/clients/delete_client/{id}/{id_2}', 'ClientsController@destroy')->name('/cms/clients/delete_client');
+
+
 //news
     Route::get('/cms/news/index', 'NewsController@index')->name('/cms/news/index');
-    Route::get('/cms/news/update_news', 'NewsController@update')->name('/cms/news/update_news');
+    Route::post('/cms/news/update_news', 'NewsController@update')->name('/cms/news/update_news');
     Route::get('/cms/news/edit_news/{id}', 'NewsController@edit')->name('/cms/news/edit_news');
     Route::get('/cms/news/create_news', 'NewsController@create')->name('/cms/news/create_news');
     Route::post('/cms/news/store_news', 'NewsController@store')->name('/cms/news/store_news');
+    Route::get('/cms/news/delete_news/{id}', 'NewsController@destroy')->name('/cms/news/delete_news');
 
+//rooms
+    Route::get('/cms/rooms/index', 'RoomsController@index')->name('/cms/rooms/index');
+    Route::post('/cms/rooms/update_rooms', 'RoomsController@update')->name('/cms/rooms/update_rooms');
+    Route::get('/cms/rooms/edit_rooms/{id}', 'RoomsController@edit')->name('/cms/rooms/edit_rooms');
+    Route::get('/cms/rooms/create_rooms', 'RoomsController@create')->name('/cms/rooms/create_rooms');
+    Route::post('/cms/rooms/store_rooms', 'RoomsController@store')->name('/cms/rooms/store_rooms');
+    Route::get('/cms/rooms/delete_rooms/{id}', 'RoomsController@destroy')->name('/cms/rooms/delete_rooms');
 });
 
 //RUTI ZA INSERT,EDIT I DELETE ZA SITE.
