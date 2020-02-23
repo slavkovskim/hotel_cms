@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
-<script src="{{ asset('/ckeditor/samples/js/sample.js') }}"></script>
 @include('cms.layouts.head')
 
 <body id="page-top">
@@ -28,81 +26,44 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Create Rooms</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Create a new room</h1>
                 </div>
+                <form method="POST" action="{{ route('/cms/rooms/store_rooms') }}" enctype="multipart/form-data">
+                    @csrf
 
-
-                <!--   tuka forma za naslov da vpises    -->
-                <!--   tuka forma za slika da stavis-->
-                <!--   tuka forma za tekst da vpises    -->
-
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Create a Room</h1>
-                    </div>
-                    <form action="{{ route('/cms/rooms/store_rooms') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-12">
-                                <label>Insert pictures/ make this for multiple pictures</label>
-                                <input class="btn btn-primary" name="file" type="file" value="" >
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Cover image</label>
+                            <input class="btn btn-primary" style="width: 100%;padding: 0px 0px;" name="file"  type="file" />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Insert title</label>
+                                    <input class="form-control" name="title" value="" >
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Room type</label>
+                                    <input class="form-control" name="room_type" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Number of beds</label>
+                                    <input class="form-control" name="beds_number" />
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Room price</label>
+                                    <input class="form-control" name="price" />
+                                </div>
                             </div>
-
-                            <div class="col-md-12">
-                                <label>Insert title</label>
-                                <input class="form-control" name="title" value="" >
-                            </div>
-
-                            <div class="col-md-12">
-                                <label>Insert room type</label>
-                                <input class="form-control" name="title" value="" >
-                            </div>
-
-                            <div class="col-md-12">
-                                <label>Insert bed number</label>
-                                <input class="form-control" name="title" value="" >
-                            </div>
-
-                            <div class="col-md-12">
-                                <label>Insert price</label>
-                                <input class="form-control" name="title" value="" >
-                            </div>
-
-                            <div class="col-md-12">
-                                <label>Insert description</label>
-                                <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
-                                          spellcheck="true"
-                                          placeholder="">
+                            <label>Description about room</label>
+                            <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
+                                      spellcheck="true"
+                                      placeholder="">
 
                 </textarea>
-                            </div>
                         </div>
-                        <input class="btn btn-success" type="submit" value="Submit" >
-                        <input class="btn btn-danger"  type="submit" value="Cancel" >
-                    </form>
-
-
-                    <!-- Content Row -->
-
-
-
-                    <!-- Content Row -->
-
-                    <!-- /.container-fluid -->
-
-                </div>
-
-
-
-                <!-- Content Row -->
-
-
-
-                <!-- Content Row -->
-
-                <!-- /.container-fluid -->
+                    </div>
+                    {{--@endforeach--}}
+                    <input type="submit" class="btn btn-primary pull-right" />
+                </form>
 
             </div>
             <!-- End of Main Content -->

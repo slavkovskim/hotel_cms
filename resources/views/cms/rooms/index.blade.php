@@ -34,7 +34,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
                     <a href="{{ route('/cms/rooms/create_rooms') }}">
-                        <input class="btn btn-success" type="button" name="edit" value="Create a new room" >
+                        <input class="btn btn-success" type="button"  value="Create a new room" >
                     </a>
                 </div>
 
@@ -49,15 +49,21 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             </div>
                             <h5 style="height: 50px;" class="text-center">{{$room->title}}</h5>
                             <div class="row">
+                                <div class="col-md-12" >
+
+                                    <a href="{{ asset('/cms/rooms/gallery').'/'.$room->id }}">
+                                        <input class="btn btn-success" type="button" name="edit" value="Room Gallery" style="width:100%;" >
+                                    </a>
+                                </div>
                                 <div class="col-md-6" >
 
-                                    <a href="{{ asset('/cms/news/edit_news').'/'.$room->id }}">
+                                    <a href="{{ asset('/cms/rooms/edit_rooms').'/'.$room->id }}">
                                         <input class="btn btn-warning" type="button" name="edit" value="Edit" style="width:100%;" >
                                     </a>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <a href="{{ asset('/cms/news/delete_news').'/'.$room->id}}">
+                                    <a href="{{ asset('/cms/rooms/delete_rooms').'/'.$room->id}}">
                                         <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
                                     </a>
                                 </div>

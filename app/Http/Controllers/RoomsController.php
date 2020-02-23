@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Rooms;
-use App\Rooms_Gallery;
+use App\RoomsGallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -51,6 +51,8 @@ class RoomsController extends Controller
             Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
             $room->cover_image = $cover->getFilename() . '.' . $extension;
 
+            $room->title = request('title');
+
             $room->description = request('description');
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
@@ -61,7 +63,7 @@ class RoomsController extends Controller
         }
         else
         {
-
+            $room->title = request('title');
             $room->description = request('description');
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
@@ -90,9 +92,10 @@ class RoomsController extends Controller
      * @param  \App\Rooms  $rooms
      * @return \Illuminate\Http\Response
      */
-    public function edit(Rooms $rooms)
+    public function edit($id)
     {
-        //
+        $rooms = Rooms::find($id);
+        return view ('cms/rooms/edit_rooms')->with('rooms',$rooms);
     }
 
     /**
@@ -104,7 +107,40 @@ class RoomsController extends Controller
      */
     public function update(Request $request, Rooms $rooms)
     {
-        //
+//        $room = new Rooms();
+
+        $room_id=request('id_room');
+        $room = Rooms::find($room_id);
+
+        if($request->hasFile('file')) {
+
+            $cover = $request->file('file');
+            $extension = $cover->getClientOriginalExtension();
+            Storage::disk('public')->put($cover->getFilename() . '.' . $extension, File::get($cover));
+            $room->cover_image = $cover->getFilename() . '.' . $extension;
+
+            $room->title = request('title');
+
+            $room->description = request('description');
+            $room->room_type = request('room_type');
+            $room->beds_number = request('beds_number');
+            $room->price = request('price');
+            $room->save();
+
+
+        }
+        else
+        {
+            $room->title = request('title');
+            $room->description = request('description');
+            $room->room_type = request('room_type');
+            $room->beds_number = request('beds_number');
+            $room->price = request('price');
+            $room->save();
+
+
+        }
+        return \redirect('/cms/rooms/index');
     }
 
     /**
@@ -113,10 +149,14 @@ class RoomsController extends Controller
      * @param  \App\Rooms  $rooms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rooms $rooms)
+    public function destroy($id)
     {
-        //
+        DB::table('rooms')->where('id', '=', $id)->delete();
+        return redirect('/cms/rooms/index');
     }
+
+    //new methods below
+
     public function gallery($id)
     {
         $rooms_gallery = DB::select(DB::raw(
@@ -140,7 +180,7 @@ class RoomsController extends Controller
                 Storage::disk('public')->put($image->getFilename() . '.' . $extension, File::get($image));
                 $imageName = $image->hashName();
 
-                $room_gallery = new Rooms_Gallery();
+                $room_gallery = new RoomsGallery();
                 $room_gallery->id_room = $id_room;
                 $room_gallery->image = $image->getFilename() . '.' . $extension;;
 
@@ -149,5 +189,17 @@ class RoomsController extends Controller
         }
 
         return redirect('cms/rooms/gallery/'.$id_room);
+    }
+    public function delete_gallery_image($id)
+    {
+        /*
+        $gallery = new RoomsGallery();
+        $id_room = request('id_room');
+
+        $gallery->id_room = $id_room;
+*/
+
+        DB::table('rooms_gallery')->where('id', '=', $id)->delete();
+        return redirect('/cms/rooms/gallery/'); //where to go better? it should redirect to /cms/rooms/gallery/id_of_gallery
     }
 }
