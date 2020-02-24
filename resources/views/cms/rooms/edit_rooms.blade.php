@@ -28,34 +28,38 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Edit rooms</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Edit room</h1>
                 </div>
                 <form action="{{ route('/cms/rooms/update_rooms') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="room_id" value="{{ $rooms->id }}" >
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Insert pictures/ make this for multiple pictures</label>
+                            <label>Insert pictures</label>
+                            <div class="col-md-6">
+                                <img class="" style="height: 200px" src="{{url('uploads/'.$rooms->cover_image)}}">
+                            </div>
                             <input class="btn btn-primary" name="file" type="file" value="" >
                         </div>
 
                         <div class="col-md-12">
                             <label>Insert title</label>
-                            <input class="form-control" name="title" value="" >
+                            <input class="form-control" name="title" value="{{ $rooms->title }}" >
                         </div>
 
                         <div class="col-md-12">
                             <label>Insert room type</label>
-                            <input class="form-control" name="title" value="" >
+                            <input class="form-control" name="room_type" value="{{ $rooms->room_type }}" >
                         </div>
 
                         <div class="col-md-12">
                             <label>Insert bed number</label>
-                            <input class="form-control" name="title" value="" >
+                            <input class="form-control" name="beds_number" value="{{ $rooms->beds_number }}" >
                         </div>
 
                         <div class="col-md-12">
                             <label>Insert price</label>
-                            <input class="form-control" name="title" value="" >
+                            <input class="form-control" name="price" value="{{ $rooms->price }}" >
                         </div>
 
                         <div class="col-md-12">
@@ -63,7 +67,7 @@
                             <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
                                       spellcheck="true"
                                       placeholder="">
-
+                                {{ $rooms->description }}
                 </textarea>
                         </div>
                     </div>

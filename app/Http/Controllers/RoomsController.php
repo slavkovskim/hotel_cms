@@ -109,7 +109,7 @@ class RoomsController extends Controller
     {
 //        $room = new Rooms();
 
-        $room_id=request('id_room');
+        $room_id=request('room_id');
         $room = Rooms::find($room_id);
 
         if($request->hasFile('file')) {
@@ -190,16 +190,9 @@ class RoomsController extends Controller
 
         return redirect('cms/rooms/gallery/'.$id_room);
     }
-    public function delete_gallery_image($id)
+    public function delete_gallery_image($id, $id_room)
     {
-        /*
-        $gallery = new RoomsGallery();
-        $id_room = request('id_room');
-
-        $gallery->id_room = $id_room;
-*/
-
         DB::table('rooms_gallery')->where('id', '=', $id)->delete();
-        return redirect('/cms/rooms/gallery/'); //where to go better? it should redirect to /cms/rooms/gallery/id_of_gallery
+        return redirect('/cms/rooms/gallery/'.$id_room); //where to go better? it should redirect to /cms/rooms/gallery/id_of_gallery
     }
 }

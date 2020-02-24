@@ -78,8 +78,17 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cms/rooms/delete_rooms/{id}', 'RoomsController@destroy')->name('/cms/rooms/delete_rooms');
     Route::post('/cms/rooms/store_image', 'RoomsController@store_image')->name('/cms/rooms/store_image');
     Route::get('/cms/rooms/gallery/{id}', 'RoomsController@gallery')->name('/cms/rooms/gallery');
-    Route::get('/cms/rooms/delete_gallery_image/{id}', 'RoomsController@delete_gallery_image')->name('/cms/rooms/delete_gallery_image');
+    Route::get('/cms/rooms/delete_gallery_image/{id}/{id_room}', 'RoomsController@delete_gallery_image')->name('/cms/rooms/delete_gallery_image');
     //also, cant remove room when gallery is not removed first (foreign key problems)
+
+//spa
+    Route::get('/cms/spa/index', 'SpaController@index')->name('/cms/spa/index');
+
+
+
+
 });
+
+
 
 //RUTI ZA INSERT,EDIT I DELETE ZA SITE.

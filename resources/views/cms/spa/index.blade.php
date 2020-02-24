@@ -28,34 +28,48 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Room Gallery</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Spa</h1>
                 </div>
-                <form method="POST" action="{{ route('/cms/rooms/store_image') }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <label>Choose images</label>
-                    <input type="hidden" name="id_room" value="{{$room_id}}" >
-                    <input class="btn btn-primary" style="width: 100%;padding: 0px 0px;" name="file[]" multiple  type="file" />
-                    <input class="btn btn-success" type="submit" value="Submit">
-                </form>
 
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+
+                    <a href="{{ route('/cms/spa/create_spa') }}">
+                        <input class="btn btn-success" type="button"  value="Create a new room" >
+                    </a>
+                </div>
 
                 <div class="row">
-                    @if($rooms_gallery!=null)
-                        @foreach($rooms_gallery as $room_gallery)
-                            <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; ">
-                                <div class="col-md-12">
-                                    <img class="" style="height: 200px" src="{{url('uploads/'.$room_gallery->image)}}">
 
+                    @foreach($spas as $spa)
+                        <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+                            <div class="col-md-12">
+                                <img class="" style="height: 200px" src="{{url('uploads/'.$spa->cover_image)}}">
+                            </div>
+                            <h5 style="height: 50px;" class="text-center">{{$spa->title}}</h5>
+                            <div class="row">
+                                <div class="col-md-12" >
+
+                                    <a href="{{ asset('/cms/rooms/gallery').'/'.$spa->id }}">
+                                        <input class="btn btn-success" type="button" name="edit" value="Room Gallery" style="width:100%;" >
+                                    </a>
                                 </div>
-                                <p>Press the Delete button to remove picture from gallery.</p>
+                                <div class="col-md-6" >
+
+                                    <a href="{{ asset('/cms/rooms/edit_rooms').'/'.$room->id }}">
+                                        <input class="btn btn-warning" type="button" name="edit" value="Edit" style="width:100%;" >
+                                    </a>
+                                </div>
+
                                 <div class="col-md-6">
-                                        <a href="{{ asset('/cms/rooms/delete_gallery_image') . '/' . $room_gallery->id . '/' . $room_gallery->id_room }}">
+                                    <a href="{{ asset('/cms/rooms/delete_rooms').'/'.$spa->id}}">
                                         <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
                                     </a>
                                 </div>
                             </div>
-                        @endforeach
-                    @endif
+                        </div>
+                    @endforeach
                 </div>
 
                 <!-- Content Row -->
