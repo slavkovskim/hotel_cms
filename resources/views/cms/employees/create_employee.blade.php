@@ -41,19 +41,20 @@
                             <label>Surname</label>
                             <input class="form-control" name="surname" value="" />
                         </div>
+
                         <div class="col-md-3 text-center">
                             <label>Gender</label>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <label>Male</label>
-                                    <input class="form-control" type="radio" name="gender" value="0" />
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Female</label>
-                                    <input class="form-control" type="radio" name="gender" value="1" />
+                                <select class="form-control" name="gender">
+                                    <option value="">Choose gender</option>
+                                    <option value="0">Male</option>
+                                    <option value="1">Female</option>
+                                </select>
+
                                 </div>
                             </div>
-                        </div>
+
+
                         <div class="col-md-3">
                             <label>Email</label>
                             <input class="form-control @error('email') is-invalid @enderror" name="email" value="" />
@@ -70,15 +71,15 @@
                         <div class="col-md-3">
                             <label>Work position</label>
                             <select class="form-control" name="works_at">
-                                <option value="">Choose</option>
-                                <option value="0">Hotel</option>
-                                <option value="1">Spa</option>
+                                <option value="">Choose work position</option>
+                                <option value="1">Hotel</option>
+                                <option value="0">Spa</option>
                             </select>
                         </div>
 
                         <div class="col-md-3">
                             <label>Password</label>
-                            <input class="form-control @error('password') is-invalid @enderror" name="password"  value="" />
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"  value="" />
                             @error('password')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -87,7 +88,7 @@
                         </div>
                         <div class="col-md-3">
                             <label>Password Confirmation</label>
-                            <input class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation"  value="" />
+                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation"  value="" />
                             @error('password_confirmation')
                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

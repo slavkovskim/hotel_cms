@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/about.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/about_responsive.css') }}">
 </head>
+
+
 <body>
 
 <div class="super_container">
@@ -28,8 +30,8 @@
    @include('layouts.menu')
 
     <!-- Home -->
-@yield('home')
-{{--    @include('layouts.home')--}}
+
+    @include('layouts.home')
 
     <!-- About -->
 
@@ -37,7 +39,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="about_title"><h2>The River / 10 years of excellence</h2></div>
+                    <div class="about_title"><h2>Hotel MS / 0 years of excellence</h2></div>
                 </div>
             </div>
             <div class="row about_row">

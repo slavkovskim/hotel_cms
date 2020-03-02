@@ -50,9 +50,10 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $count=1; ?>
                         @foreach($employees as $employee)
                             <tr>
-                                <th scope="row">{{$employee->id}}</th>
+                                <th scope="row">{{$count}}</th>
                                 <td>{{$employee->name}}</td>
                                 <td>{{$employee->surname}}</td>
                                 <td>
@@ -63,7 +64,7 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($employee->works_at==0)
+                                    @if($employee->works_at==1)
                                         Hotel
                                     @else
                                         Spa
@@ -83,6 +84,7 @@
                                 </td>
 
                             </tr>
+                            <?php $count++; ?>
                         @endforeach
                         </tbody>
                     </table>

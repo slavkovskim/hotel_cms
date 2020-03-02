@@ -86,7 +86,6 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
         $news = News::find($id);
         return view('/cms/news/edit_news')->with('news', $news);
     }

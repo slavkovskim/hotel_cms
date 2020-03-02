@@ -83,10 +83,14 @@ Route::group(['middleware' => ['auth']], function() {
 
 //spa
     Route::get('/cms/spa/index', 'SpaController@index')->name('/cms/spa/index');
+    Route::post('/cms/spa/update_spa', 'SpaController@update')->name('/cms/spa/update_spa');
+    Route::get('/cms/spa/edit_spa/{id}', 'SpaController@edit')->name('/cms/spa/edit_spa');
+//    Route::get('/cms/spa/create_spa', 'SpaController@create')->name('/cms/spa/create_spa');
+    Route::post('/cms/spa/store_spa', 'SpaController@store')->name('/cms/spa/store_spa');
+    Route::get('/cms/spa/delete_spa/{id}', 'SpaController@destroy')->name('/cms/spa/delete_spa');
 
-
-
-
+//    Route::get('/cms/spa/show_spa_employees', 'SpaController@spa_employee')->name('/cms/spa/show_spa_employee');
+    Route::get('/cms/spa/create_spa', 'SpaController@spa_employee')->name('/cms/spa/create_spa'); //works like this
 });
 
 

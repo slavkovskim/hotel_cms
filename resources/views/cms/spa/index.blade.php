@@ -34,7 +34,7 @@
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
 
                     <a href="{{ route('/cms/spa/create_spa') }}">
-                        <input class="btn btn-success" type="button"  value="Create a new room" >
+                        <input class="btn btn-success" type="button"  value="Create a new spa treatment" >
                     </a>
                 </div>
 
@@ -42,28 +42,22 @@
 
                     @foreach($spas as $spa)
                         <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
-                            <div class="col-md-12">
-                                <img class="" style="height: 200px" src="{{url('uploads/'.$spa->cover_image)}}">
+                        -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                        box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+                            <div class="col-md-12" style="top:0px;">
+                                <img class="" style="height: 120%; width: 105%;" src="{{url('uploads/'.$spa->cover_image)}}">
                             </div>
-                            <h5 style="height: 50px;" class="text-center">{{$spa->title}}</h5>
+                            <h5 style="" class="text-center">{{$spa->title}}</h5>
                             <div class="row">
-                                <div class="col-md-12" >
+                                  <div class="col-md-6" >
 
-                                    <a href="{{ asset('/cms/rooms/gallery').'/'.$spa->id }}">
-                                        <input class="btn btn-success" type="button" name="edit" value="Room Gallery" style="width:100%;" >
-                                    </a>
-                                </div>
-                                <div class="col-md-6" >
-
-                                    <a href="{{ asset('/cms/rooms/edit_rooms').'/'.$room->id }}">
+                                    <a href="{{ asset('/cms/spa/edit_spa').'/'.$spa->id }}">
                                         <input class="btn btn-warning" type="button" name="edit" value="Edit" style="width:100%;" >
                                     </a>
                                 </div>
 
                                 <div class="col-md-6">
-                                    <a href="{{ asset('/cms/rooms/delete_rooms').'/'.$spa->id}}">
+                                    <a href="{{ asset('/cms/spa/delete_spa').'/'.$spa->id}}">
                                         <input class="btn btn-danger" type="button" name="edit" value="Delete" style="width:100%;" >
                                     </a>
                                 </div>
