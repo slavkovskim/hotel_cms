@@ -151,8 +151,11 @@ class RoomsController extends Controller
      */
     public function destroy($id)
     {
+
+        DB::table('rooms_gallery')->where('id_room', '=', $id)->delete();
         DB::table('rooms')->where('id', '=', $id)->delete();
-       // DB::table('rooms_gallery')->where('id', '=', $id_gallery)->delete(); //tried to fi/x
+
+
         return redirect('/cms/rooms/index');
     }
 

@@ -142,7 +142,7 @@ class SpaController extends Controller
 
             $spa->title = request('title');
             $spa->description = request('description');
-            $spa->employee_id = request('employee_id'); //ili employee_id(kako vo bazata so mi e)??
+            $spa->employee_id = request('employee_id');
             $spa->price = request('price');
             $spa->save();
 
@@ -152,12 +152,13 @@ class SpaController extends Controller
         {
             $spa->title = request('title');
             $spa->description = request('description');
-            $spa->employee_id = request('employee_id'); //ili employee_id(kako vo bazata so mi e)??
+            $spa->employee_id = request('employee_id');
             $spa->price = request('price');
             $spa->save();
 
 
         }
+        return \redirect('/cms/spa/index');
     }
 
     /**

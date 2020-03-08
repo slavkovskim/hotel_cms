@@ -42,8 +42,8 @@
 
                     @foreach($news as $new)
                         <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
+                     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             <div class="col-md-12">
                                 <img class="" style="height: 200px" src="{{url('uploads/'.$new->cover_image)}}">
                             </div>

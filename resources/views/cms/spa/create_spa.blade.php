@@ -35,20 +35,23 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <label>Image of treatment</label>
+                            <label>Insert image of treatment</label>
                             <input class="btn btn-primary" style="width: 100%;padding: 0px 0px;" name="file"  type="file" />
                             <div class="row">
                                 <div class="col-md-12">
+                                    <br>
                                     <label>Insert name of treatment</label>
                                     <input class="form-control" name="title" value="" >
                                 </div>
                                 <div class="col-md-12">
+                                    <br>
                                     <label>Insert spa treatment description</label>
                                     <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
                                               spellcheck="true"
                                               placeholder="">
                                     </textarea>
-                                <div class="col-md-4">
+                                    <br>
+                                <div class="col-md-4"  style="position:relative; left:-1%;">
                                     <label>Which employee can do this service</label> <!-- tuka treba nesto kako drop-down i lista na vrabotenite -->
 {{--                                    <input class="form-control" name="employee_id" /> <!--not quite sure about this one -->--}}
                                     <select class="form-control" name="employee_id">
@@ -58,26 +61,28 @@
                                             @endforeach
                                     </select>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" style="position:relative; left:-1%;">
                                     <label>Price per hour</label>
                                     <input class="form-control" name="price" />
                                 </div>
 
+                                    <div class="col-md-4" style="position:relative; left:-1%;">
                                     <div>
-                                     <label>Time and date from</label>
-                                        <input class="form-control" type="date" name="time_from" />
+                                     <label>Date and time from</label>
+                                        <input class="form-control" type="datetime-local" name="time_from" />
                                     </div>
 
                                     <div>
-                                        <label>Time and date to</label>
-                                        <input class="form-control" type="date" name="time_to" />
+                                        <label>Date and time to</label>
+                                        <input class="form-control" type="datetime-local" name="time_to" />
                                     </div>
+                                    </div>
+                                    <br>
                         </div>
                     </div>
                     {{--@endforeach--}}
                     <input type="submit" class="btn btn-primary pull-right" />
                 </form>
-
             </div>
             <!-- End of Main Content -->
 

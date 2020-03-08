@@ -28,49 +28,70 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Edit room</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Edit spa</h1>
                 </div>
-                <form action="{{ route('/cms/rooms/update_rooms') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('/cms/spa/update_spa') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="spas_id" value="{{ $spas->id }}" >
                     <div class="row">
 
                         <div class="col-md-12">
-                            <label>Insert title</label>
+                            <label>Edit title</label>
                             <input class="form-control" name="title" value="{{ $spas->title }}" >
+                       <br>
                         </div>
 
                         <div class="col-md-12">
-                            <label>Insert description</label>
+                            <label>Edit description</label>
                             <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
                                       spellcheck="true"
                                       placeholder="">
                                 {{ $spas->description }}
                                 </textarea>
+                            <br>
                         </div>
 
                         <div class="col-md-12">
-                            <label>Insert picture</label>
-                            <div class="col-md-6">
+                            <label>Edit picture</label>
+                            <div style="position:relative;">
                                 <img class="" style="height: 200px" src="{{url('uploads/'.$spas->cover_image)}}">
+                                <br>
                             </div>
-                            <input class="btn btn-primary" name="file" type="file" value="" >
+                            <br>
+                            <input class="btn btn-primary" style="width: 100%;padding: 0px 0px;" name="file"  type="file" />
+                            <br>
                         </div>
+                    <br>
 
+                        <div style="position:relative; left:1%;">
+                    <label>Edit spa employee</label>
                         <select class="form-control" name="employee_id">
-                            <option value="">Choose SPA employee</option>
                             @foreach ($employees as $employee)
                                 <option value="{{ $employee->id }}">{{$employee->name}}</option>
                             @endforeach
                         </select>
-
-                         <div class="col-md-12">
-                            <label>Insert price</label>
-                            <input class="form-control" name="price" value="{{ $spas->price }}" >
+                    <br>
                         </div>
 
+                         <div class="col-md-12">
+                            <label>Edit price</label>
+                            <input class="form-control" name="price" value="{{ $spas->price }}" >
+                        </div>
+<br>
 
+                        <div style="position:relative; left:1%;">
+                        <div>
+                            <label>Time and date from</label>
+                            <input class="form-control" type="datetime-local" value="{{$spas->time_from}}" />
+                        </div>
+
+                        <div>
+                            <label>Time and date to</label>
+                            <input class="form-control" type="datetime-local" value="{{$spas->time_to}}" />
+                        </div>
+                        </div>
                     </div>
+                    <br>
                     <input class="btn btn-success" type="submit" value="Submit" >
                     <input class="btn btn-danger"  type="submit" value="Cancel" >
                 </form>

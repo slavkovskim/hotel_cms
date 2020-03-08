@@ -45,7 +45,7 @@
 -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             <div class="col-md-12">
-                                <img class="" style="height: 200px" src="{{url('uploads/'.$room->cover_image)}}">
+                                <img class="" style="height: 200px; width: 250px;" src="{{url('uploads/'.$room->cover_image)}}">
                             </div>
                             <h5 style="height: 50px;" class="text-center">{{$room->title}}</h5>
                             <div class="row">
@@ -54,6 +54,8 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                                     <a href="{{ asset('/cms/rooms/gallery').'/'.$room->id }}">
                                         <input class="btn btn-success" type="button" name="edit" value="Room Gallery" style="width:100%;" >
                                     </a>
+                                    <br>
+                                    <br>
                                 </div>
                                 <div class="col-md-6" >
 

@@ -33,13 +33,17 @@
                 <form action="{{ route('/cms/about_us/update_about_us') }}" method="">
                     @csrf
                     <input type="hidden" name="id_about_us" value="{{ $about_us->id }}" >
-                    <input class="form-control" name="title" value="{{ $about_us->title }}" >
 
+                    <label>Edit title</label>
+                    <input class="form-control" name="title" value="{{ $about_us->title }}" >
+                    <br>
+                    <label>Edit description</label>
                     <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"
                               spellcheck="true"
                               placeholder="">
                      {{ $about_us->description }}
                 </textarea>
+                    <br>
                     <input class="btn btn-success" type="submit" value="Submit" >
                 </form>
 

@@ -28,7 +28,7 @@
 
                 <!-- Page Heading -->
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Spa</h1>
+                    <h1 class="h3 mb-0 text-gray-800">Spa treatments</h1>
                 </div>
 
                 <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -44,11 +44,11 @@
                         <div class="col-md-3 col-xs-3 col-sm-3 text-center" style="margin-top: 3%; -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
                         -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
                         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
-                            <div class="col-md-12" style="top:0px;">
-                                <img class="" style="height: 120%; width: 105%;" src="{{url('uploads/'.$spa->cover_image)}}">
+                            <div class="col-md-12" style="">
+                                <img class="" style="height: 200px; width: 250px;" src="{{url('uploads/'.$spa->cover_image)}}">
                             </div>
-                            <h5 style="" class="text-center">{{$spa->title}}</h5>
-                            <div class="row">
+                            <h5 style="height: 50px;" class="text-center">{{$spa->title}}</h5>
+                            <div class="row" style="">
                                   <div class="col-md-6" >
 
                                     <a href="{{ asset('/cms/spa/edit_spa').'/'.$spa->id }}">
@@ -62,6 +62,7 @@
                                     </a>
                                 </div>
                             </div>
+                            <!-- spacing between buttons -->
                         </div>
                     @endforeach
                 </div>

@@ -49,9 +49,10 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php $count=1; ?>
                         @foreach($clients as $client)
                             <tr>
-                                <th scope="row">{{$client->id}}</th>
+                                <th scope="row">{{$count}}</th>
                                 <td>{{$client->name}}</td>
                                 <td>{{$client->surname}}</td>
                                 <td>
@@ -76,6 +77,7 @@
                                 </td>
 
                             </tr>
+                            <?php $count++; ?>
                         @endforeach
                         </tbody>
                     </table>
