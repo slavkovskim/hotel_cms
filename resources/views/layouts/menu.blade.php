@@ -1,3 +1,4 @@
+<!-- This is menu for mobile version! -->
 <div class="menu trans_400 d-flex flex-column align-items-end justify-content-start">
     <div class="menu_close"><i class="fa fa-times" aria-hidden="true"></i></div>
     <div class="menu_content">

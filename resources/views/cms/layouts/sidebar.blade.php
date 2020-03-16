@@ -46,6 +46,12 @@
             <span>Spa</span></a>
     </li>
 
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('/cms/contact_us/index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Contact us Messages</span></a>
+    </li>
+
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>

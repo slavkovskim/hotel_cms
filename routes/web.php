@@ -24,15 +24,40 @@ Route::get('/adminhome', 'HomeController@index')->name('home');
 Route::get('/about', function(){
     return view('about');
 });
+Route::get('/about', 'About_usController@indexFe')->name('/about');
+
+//Contact us page
 
 Route::get('/contact', function(){
     return view('contact');
 });
+
+//Route::post('/contact/update_contact', 'Contact_usController@update')->name('/contact/update_contact');
+
+//Route::post('/contact/store_contact', 'Contact_usController@store')->name('/contact/store_contact');
+
+//Route::post('/contact', ['as'=>'contact.store','uses'=>'Contact_usController@contactUSPost']);
+
+Route::get('/contact', [
+   'uses' => 'Contact_usController@create'
+]);
+//Route::post('/contact', 'Contact_usController@store')->name('/contact');
+
+Route::post('/contact', [
+    'uses' => 'Contact_usController@store',
+    'as' => 'contact.store'
+]);
+
+
+//Homepage
+
 Route::get('/homepage', function(){
    return view('homepage');
 });
 
-//CMS:
+
+
+//CMS panel:
 
 //pochetna cms
 Route::group(['middleware' => ['auth']], function() {
@@ -93,6 +118,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/cms/spa/create_spa', 'SpaController@spa_employee')->name('/cms/spa/create_spa'); //works like this
 });
 
+
+//contact_us cms del
+
+    Route::get('/cms/contact_us/index', 'Contact_usController@index')->name('/cms/contact_us/index');
 
 
 //RUTI ZA INSERT,EDIT I DELETE ZA SITE.

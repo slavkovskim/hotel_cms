@@ -18,8 +18,14 @@ class About_usController extends Controller
         $data = compact('about_us');
         return view('/cms/about_us/index' ,$data);
 
+    }
 
-        //na kraj ovde se stava return za da go vrati viewto
+    public function indexFe()
+    {
+        $about_us = About_us::find('1');
+        $data = compact('about_us');
+        return view('/about' ,$data);
+
     }
 
     /**
