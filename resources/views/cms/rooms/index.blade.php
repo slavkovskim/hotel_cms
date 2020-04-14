@@ -48,6 +48,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                                 <img class="" style="height: 200px; width: 250px;" src="{{url('uploads/'.$room->cover_image)}}">
                             </div>
                             <h5 style="height: 50px;" class="text-center">{{$room->title}}</h5>
+                            <p1 style="height: 30px; font-size:20px;" class="text-center">{{$room->price}}$</p1>
                             <div class="row">
                                 <div class="col-md-12" >
 

@@ -12,6 +12,8 @@
     <link href="{{ asset('plugins/jquery-datepicker/jquery-ui.css') }}" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/about.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/about_responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/booking.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('styles/booking_responsive.css') }}">
 </head>
 
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
@@ -28,3 +30,4 @@
 <script src="{{ asset('plugins/parallax-js-master/parallax.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-datepicker/jquery-ui.js') }}"></script>
 <script src="{{ asset('js/about.js') }}"></script>
+<script src="{{ asset('js/booking.js') }}"></script>

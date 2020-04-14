@@ -1,4 +1,5 @@
 <!-- This is menu for desktop site -->
+
 <header class="header">
     <div class="header_content d-flex flex-row align-items-center justify-content-start">
         <div class="logo"><a href="homepage">Hotel MS</a></div>
@@ -8,7 +9,7 @@
                     <li><a href="homepage">Home</a></li>
                     <li ><a href="about">About us</a></li>
                     <li><a href="contact">Contact</a></li>
-                    <li><a href="#">Rooms</a></li>
+                    <li><a href="rooms">Rooms</a></li>
                     <li><a href="#">Spa</a></li>
                 </ul>
             </nav>

@@ -51,11 +51,20 @@ Route::post('/contact', [
 
 //Homepage
 
-Route::get('/homepage', function(){
-   return view('homepage');
+Route::get('/home', function(){
+   return view('cms/index');
 });
 
+Route::get('/homepage', function(){
+    return view('homepage');
+});
 
+//Rooms reservation front end
+Route::get('/rooms', function(){
+    return view('rooms');
+});
+
+Route::get('/rooms', 'RoomsController@indexRoomsFe')->name('rooms');
 
 //CMS panel:
 
