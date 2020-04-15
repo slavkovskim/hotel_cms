@@ -10,7 +10,7 @@
                     <li ><a href="about">About us</a></li>
                     <li><a href="contact">Contact</a></li>
                     <li><a href="rooms">Rooms</a></li>
-                    <li><a href="#">Spa</a></li>
+                    <li><a href="spa">Spa</a></li>
                 </ul>
             </nav>
             <div class="book_button"><a href="login">Log in</a></div>

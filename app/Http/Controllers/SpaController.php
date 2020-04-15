@@ -23,6 +23,12 @@ class SpaController extends Controller
         return view('/cms/spa/index')->with('spas', $spas)->with('employees', $employees);
     }
 
+    public function indexSpaFe(){
+        $spas = Spa::all();
+        $employees = Employees::all();
+        return view('/spa')->with('spas', $spas)->with('employees', $employees);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

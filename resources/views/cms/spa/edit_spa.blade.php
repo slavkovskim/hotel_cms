@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>
-<script src="{{ asset('/ckeditor/samples/js/sample.js') }}"></script>
+{{--<script type="text/javascript" src="{{ asset('/ckeditor/ckeditor.js') }}"></script>--}}
+{{--<script src="{{ asset('/ckeditor/samples/js/sample.js') }}"></script>--}}
 @include('cms.layouts.head')
 
 <body id="page-top">

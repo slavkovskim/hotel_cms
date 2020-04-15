@@ -66,6 +66,14 @@ Route::get('/rooms', function(){
 
 Route::get('/rooms', 'RoomsController@indexRoomsFe')->name('rooms');
 
+
+//Spa reservation front end
+Route::get('/spa', function(){
+    return view('spa');
+});
+
+Route::get('/spa', 'SpaController@indexSpaFe')->name('spas');
+
 //CMS panel:
 
 //pochetna cms
