@@ -17,9 +17,24 @@ Route::get('/', function () {
 
 
 
+//Registration and Login
+
 Auth::routes();
 
-Route::get('/adminhome', 'HomeController@index')->name('home');
+
+
+Route::get('/userlogin', function(){
+    return view('userlogin');
+});
+Route::get('/userregister', function(){
+    return view('userregister');
+});
+
+Route::post('/userregisterpost', 'UserRegisterLoginController@userregisterpost')->name('userregisterpost');
+
+
+
+//Route::get('/adminhome', 'HomeController@index')->name('home');   ovaa e gotovata od laravel koga ke se najavi admin ama koristam drugo sto go nosi na dashboard
 
 Route::get('/about', function(){
     return view('about');
@@ -32,16 +47,10 @@ Route::get('/contact', function(){
     return view('contact');
 });
 
-//Route::post('/contact/update_contact', 'Contact_usController@update')->name('/contact/update_contact');
-
-//Route::post('/contact/store_contact', 'Contact_usController@store')->name('/contact/store_contact');
-
-//Route::post('/contact', ['as'=>'contact.store','uses'=>'Contact_usController@contactUSPost']);
-
 Route::get('/contact', [
-   'uses' => 'Contact_usController@create'
+    'uses' => 'Contact_usController@create'
 ]);
-//Route::post('/contact', 'Contact_usController@store')->name('/contact');
+
 
 Route::post('/contact', [
     'uses' => 'Contact_usController@store',
@@ -52,12 +61,15 @@ Route::post('/contact', [
 //Homepage
 
 Route::get('/home', function(){
-   return view('cms/index');
+    return view('cms/index');
 });
 
 Route::get('/homepage', function(){
     return view('homepage');
 });
+
+//News front end
+Route::get('/homepage', 'IndexController@index')->name('homepage');
 
 //Rooms reservation front end
 Route::get('/rooms', function(){
@@ -121,7 +133,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/cms/rooms/store_image', 'RoomsController@store_image')->name('/cms/rooms/store_image');
     Route::get('/cms/rooms/gallery/{id}', 'RoomsController@gallery')->name('/cms/rooms/gallery');
     Route::get('/cms/rooms/delete_gallery_image/{id}/{id_room}', 'RoomsController@delete_gallery_image')->name('/cms/rooms/delete_gallery_image');
-    //also, cant remove room when gallery is not removed first (foreign key problems)
+
 
 //spa
     Route::get('/cms/spa/index', 'SpaController@index')->name('/cms/spa/index');
@@ -138,7 +150,5 @@ Route::group(['middleware' => ['auth']], function() {
 
 //contact_us cms del
 
-    Route::get('/cms/contact_us/index', 'Contact_usController@index')->name('/cms/contact_us/index');
+Route::get('/cms/contact_us/index', 'Contact_usController@index')->name('/cms/contact_us/index');
 
-
-//RUTI ZA INSERT,EDIT I DELETE ZA SITE.

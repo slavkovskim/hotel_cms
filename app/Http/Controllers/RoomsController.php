@@ -29,6 +29,11 @@ class RoomsController extends Controller
         return view('/rooms')->with('rooms', $rooms);
     }
 
+//    public function indexRoomsForHomeView(){
+//        $rooms = Rooms::all();
+//        return view('/homepage')->with('rooms', $rooms);
+//    }
+
     /**
      * Show the form for creating a new resource.
      *

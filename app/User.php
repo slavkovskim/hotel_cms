@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin() //ke raboti kako reverse na toa, this->type ke bara za 1 a togas ne e admin kaj mene
+    {
+        return $this->type; // this looks for an admin column in your users table
+    }
 }

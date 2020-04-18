@@ -18,10 +18,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-
         $news = News::orderBy('created_at', 'desc')->paginate(5);
         return view('/cms/news/index')->with('news', $news);
     }
+
+
 
     /**
      * Show the form for creating a new resource.

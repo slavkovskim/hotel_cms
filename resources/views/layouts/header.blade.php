@@ -13,8 +13,14 @@
                     <li><a href="spa">Spa</a></li>
                 </ul>
             </nav>
-            <div class="book_button"><a href="login">Log in</a></div>
-            <div class="book_button"><a href="register">Register</a></div>
+
+            @guest
+            <div class="book_button"><a href="userlogin">Log in</a></div>
+            <div class="book_button"><a href="userregister">Register</a></div>
+            @else
+                <label> {{ Auth::user()->name }}</label>
+
+            @endif
 
             <!-- Hamburger Menu -->
             <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>
