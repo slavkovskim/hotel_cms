@@ -148,6 +148,7 @@ Route::group(['middleware' => ['auth']], function() {
 });
 
 
+
 //contact_us cms del
 
 Route::get('/cms/contact_us/index', 'Contact_usController@index')->name('/cms/contact_us/index');
