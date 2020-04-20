@@ -15,12 +15,22 @@
             </nav>
 
             @guest
-            <div class="book_button"><a href="userlogin">Log in</a></div>
-            <div class="book_button"><a href="userregister">Register</a></div>
+                <div class="book_button"><a href="login">Log in</a></div>
+                <div class="book_button"><a href="register">Register</a></div>
             @else
                 <label> {{ Auth::user()->name }}</label>
 
-            @endif
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+        @endif
 
             <!-- Hamburger Menu -->
             <div class="hamburger"><i class="fa fa-bars" aria-hidden="true"></i></div>

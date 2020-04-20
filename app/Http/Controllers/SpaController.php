@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Storage;
 
 class SpaController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,12 +27,6 @@ class SpaController extends Controller
         $spas = Spa::all();
         $employees = Employees::all();
         return view('/cms/spa/index')->with('spas', $spas)->with('employees', $employees);
-    }
-
-    public function indexSpaFe(){
-        $spas = Spa::all();
-        $employees = Employees::all();
-        return view('/spa')->with('spas', $spas)->with('employees', $employees);
     }
 
     /**

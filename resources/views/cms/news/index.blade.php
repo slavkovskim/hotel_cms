@@ -45,7 +45,7 @@
                      -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
                      box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);">
                             <div class="col-md-12">
-                                <img class="" style="height: 200px" src="{{url('uploads/'.$new->cover_image)}}">
+                                <img class="" style="height: 200px; width: 250px;" src="{{url('uploads/'.$new->cover_image)}}">
                             </div>
                             <h5 style="height: 50px;" class="text-center">{{$new->title}}</h5>
                             <div class="row">

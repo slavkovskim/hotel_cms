@@ -17,82 +17,90 @@ Route::get('/', function () {
 
 
 
+//CMS panel:
+
+Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+
+
+//Route::get('/admin', 'AdminController@index')->name('home');  bese ovaka?!?!
+
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+//Homepage
+
+//News front end
+Route::get('/', 'IndexController@index')->name('homepage');
+
+
+
+//Route::group(['middleware' => ['users']], function() {
+
 //Registration and Login
+    Route::get('/userlogin', function(){
+        return view('userlogin');
+    });
+    Route::get('/userregister', function(){
+        return view('userregister');
+    });
 
-Auth::routes();
-
-
-
-Route::get('/userlogin', function(){
-    return view('userlogin');
-});
-Route::get('/userregister', function(){
-    return view('userregister');
-});
-
-Route::post('/userregisterpost', 'UserRegisterLoginController@userregisterpost')->name('userregisterpost');
+    Route::post('/userregisterpost', 'UserRegisterLoginController@userregisterpost')->name('userregisterpost');
 
 
 
 //Route::get('/adminhome', 'HomeController@index')->name('home');   ovaa e gotovata od laravel koga ke se najavi admin ama koristam drugo sto go nosi na dashboard
 
-Route::get('/about', function(){
-    return view('about');
-});
-Route::get('/about', 'About_usController@indexFe')->name('/about');
+
+
+
+    Route::get('/about', function(){
+        return view('about');
+    });
+    Route::get('/about', 'About_usController@indexFe')->name('/about');
 
 //Contact us page
 
-Route::get('/contact', function(){
-    return view('contact');
-});
+    Route::get('/contact', function(){
+        return view('contact');
+    });
 
-Route::get('/contact', [
-    'uses' => 'Contact_usController@create'
-]);
-
-
-Route::post('/contact', [
-    'uses' => 'Contact_usController@store',
-    'as' => 'contact.store'
-]);
+    Route::get('/contact', [
+        'uses' => 'Contact_usController@create'
+    ]);
 
 
-//Homepage
+    Route::post('/contact', [
+        'uses' => 'Contact_usController@store',
+        'as' => 'contact.store'
+    ]);
 
-Route::get('/home', function(){
-    return view('cms/index');
-});
-
-Route::get('/homepage', function(){
-    return view('homepage');
-});
-
-//News front end
-Route::get('/homepage', 'IndexController@index')->name('homepage');
 
 //Rooms reservation front end
-Route::get('/rooms', function(){
-    return view('rooms');
-});
+    Route::get('/rooms', function(){
+        return view('rooms');
+    });
 
-Route::get('/rooms', 'RoomsController@indexRoomsFe')->name('rooms');
+    Route::get('/rooms', 'Rooms_frontendController@indexRoomsFe')->name('rooms');
 
 
 //Spa reservation front end
-Route::get('/spa', function(){
-    return view('spa');
-});
-
-Route::get('/spa', 'SpaController@indexSpaFe')->name('spas');
-
-//CMS panel:
-
-//pochetna cms
-Route::group(['middleware' => ['auth']], function() {
-    Route::get('/cms/index', function () {
-        return view('cms/index'); //ova e samo za testiranje bez kontroler, za vo momentov
+    Route::get('/spa', function(){
+        return view('spa');
     });
+
+    Route::get('/spa', 'Spa_frontendController@indexSpaFe')->name('spas');
+
+//});
+
+Auth::routes(); //if I put them inside middleware login is broken
+
+
+
+//Route::group(['middleware' => ['admins']], function() {
+
+
+//    Route::get('/home', function(){
+//        return view('cms/index');
+//    });
 
 //about us
     Route::get('/cms/about_us/index', 'About_usController@index')->name('/cms/about_us/index');
@@ -145,8 +153,8 @@ Route::group(['middleware' => ['auth']], function() {
 
 //    Route::get('/cms/spa/show_spa_employees', 'SpaController@spa_employee')->name('/cms/spa/show_spa_employee');
     Route::get('/cms/spa/create_spa', 'SpaController@spa_employee')->name('/cms/spa/create_spa'); //works like this
-});
 
+//});
 
 
 //contact_us cms del

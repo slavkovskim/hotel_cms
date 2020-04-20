@@ -8,6 +8,11 @@ use App\Contact_us;
 class Contact_usController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index(){
         $contact_uss = Contact_us::orderBy('created_at', 'desc')->paginate(5);
         return view ('/cms/contact_us/index')->with('contact_uss', $contact_uss);
