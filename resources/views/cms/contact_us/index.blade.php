@@ -25,20 +25,18 @@
 
             <!-- Begin Page Content -->
             <h1>Contact messages</h1>
-       <div id="row" class="col-md-6" style="color:black;">
+
            @foreach($contact_uss as $contact_us)
-           <h3>Name: {{$contact_us->name}}</h3>
-           <h4>Subject: {{$contact_us->subject}}</h4>
-           <h4>Email: {{$contact_us->email}}</h4>
+   <div class="boxed" style="border: 2px solid black; width:400px;">
+       <div style="border:1px solid black;">  <p>Name: {{$contact_us->name}}</p> </div>
+           <p>Subject: {{$contact_us->subject}}</p>
+           <p>Email: {{$contact_us->email}}</p>
            <p> Message: {{$contact_us->message}}</p>
+
                <br>
                @endforeach
-       </div>
-            <!-- End of Main Content -->
+   </div>
 
-            <!-- Footer -->
-        @include('cms.layouts.footer')
-        <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->
@@ -53,7 +51,7 @@
 
     <!-- Logout Modal-->
 @include('cms.layouts.logout_modal')
-
+@include('cms.layouts.footer')
 @include('cms.layouts.js_footer')
 
 </body>

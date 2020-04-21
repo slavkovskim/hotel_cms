@@ -39,7 +39,7 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">First Name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Surname</th>
                             <th scope="col">Gender</th>
                             <th scope="col">E-mail</th>

@@ -4,7 +4,7 @@
     <div class="menu_content">
         <nav class="menu_nav text-right">
             <ul>
-                <li><a href="homepage">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="about">About us</a></li>
                 <li><a href="contact">Contact</a></li>
                 <li><a href="rooms">Rooms</a></li>

@@ -9,6 +9,12 @@
     <!-- Divider -->
     <hr class="sidebar-divider my-0">
 
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('/cms/news/index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>News / Homepage</span></a>
+    </li>
+
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('/cms/about_us/index') }}">
@@ -16,11 +22,7 @@
             <span>About us</span></a>
     </li>
 
-    <li class="nav-item active">
-        <a class="nav-link" href="{{ route('/cms/news/index') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>News</span></a>
-    </li>
+
 
     <li class="nav-item active">
         <a class="nav-link" href="{{ route('/cms/employees/index') }}">
