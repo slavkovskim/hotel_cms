@@ -52,6 +52,10 @@
                                     <label>Room price</label>
                                     <input class="form-control" name="price" />
                                 </div>
+                                <div class="col-md-4">
+                                    <label>Rooms quantity</label>
+                                    <input class="form-control" name="quantity" />
+                                </div>
                             </div>
                             <label>Description about room</label>
                             <textarea class="ckeditor form-control" name="description" cols="40" rows="6" id="description"

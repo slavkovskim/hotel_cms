@@ -70,6 +70,7 @@ class RoomsController extends Controller
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
             $room->price = request('price');
+            $room->quantity = request('quantity');
             $room->save();
 
 
@@ -81,6 +82,7 @@ class RoomsController extends Controller
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
             $room->price = request('price');
+            $room->quantity = request('quantity');
             $room->save();
 
 
@@ -138,6 +140,9 @@ class RoomsController extends Controller
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
             $room->price = request('price');
+
+            $room->quantity = request('quantity');
+
             $room->save();
 
 
@@ -149,6 +154,9 @@ class RoomsController extends Controller
             $room->room_type = request('room_type');
             $room->beds_number = request('beds_number');
             $room->price = request('price');
+
+            $room->quantity = request('quantity');
+
             $room->save();
 
 

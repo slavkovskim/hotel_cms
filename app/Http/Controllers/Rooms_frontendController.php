@@ -20,4 +20,6 @@ class Rooms_frontendController extends Controller
         $rooms = Rooms::all();
         return view('/rooms')->with('rooms', $rooms);
     }
+
+
 }

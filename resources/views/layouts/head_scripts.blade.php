@@ -31,3 +31,10 @@
 <script src="{{ asset('plugins/jquery-datepicker/jquery-ui.js') }}"></script>
 <script src="{{ asset('js/about.js') }}"></script>
 <script src="{{ asset('js/booking.js') }}"></script>
+{{--<script type="text/javascript">--}}
+{{--    $('#datetimepicker2').datetimepicker({--}}
+{{--        format: 'dd-MM-yyyy',--}}
+{{--        language: 'EN',--}}
+{{--        pickTime: false--}}
+{{--    });--}}
+{{--</script>--}}

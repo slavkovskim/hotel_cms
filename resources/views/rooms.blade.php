@@ -13,12 +13,13 @@
                     <div class="home_content text-center">
                         <div class="home_title">Book a room</div>
                         <div class="booking_form_container">
-                            <form action="#" class="booking_form" id="booking_form">
+                            <form action="reservation" method="POST" class="booking_form" id="booking_form">
+								@csrf
 								<div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
 									<label style="color:white; font-size:18px; top:30px;">Reserve room:</label>
 									<div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div><input type="text" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-										<div><input type="text" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
+										<div><input type="text" name="date_from" class=" booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
+										<div><input type="text" name="date_to" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
 
 										<div>
 											<select class="form-control" name="room_id" style="border-width:2px; width: 190%; height: 54px; background-color: grey; color:white;">
@@ -30,7 +31,9 @@
 										</div>
 
 									</div>
-									<div><button class="booking_button trans_200">Book Now</button></div>
+{{--									<div><button class="booking_button trans_200" >Book Now</button></div>--}}
+									<div><button class="booking_button trans_200" type="submit" >Book Now</button></div>
+
 								</div>
                             </form>
                         </div>

@@ -82,6 +82,14 @@ Route::get('/', 'IndexController@index')->name('homepage');
     Route::get('/rooms', 'Rooms_frontendController@indexRoomsFe')->name('rooms');
 
 
+    //Rooms  RESERVARTION FOR ROOMS!!!!! FRONT END
+
+    Route::post('/reservation', 'ReservationsController@reservationRoom')->name('reservation');
+Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_reservation');
+
+        //   Route::post('/cms/clients/update_client', 'ClientsController@update')->name('/cms/clients/update_client');
+
+
 //Spa reservation front end
     Route::get('/spa', function(){
         return view('spa');
