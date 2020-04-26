@@ -1,6 +1,14 @@
 @include('layouts.head_scripts')
 @include('layouts.header')
 
+
+<link rel="stylesheet" type="text/css" href="{{ asset('/jquery.datetimepicker.css') }}">
+<script>
+    jQuery('#datetimepicker').datetimepicker();
+</script>
+<script src="{{ asset('jquery.js') }}"></script>
+<script src="{{ asset('build/jquery.datetimepicker.full.min.js') }}"></script>
+
 <link rel="stylesheet" type="text/css" href="{{asset('styles/booking.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('styles/booking_responsive.css')}}">
 
@@ -13,16 +21,16 @@
                     <div class="home_content text-center">
                         <div class="home_title">Book a treatment</div>
                         <div class="booking_form_container">
-                            <form action="spa_reservations" class="booking_form" id="booking_form">
+                            <form action="spa_reservations" method="POST" class="booking_form" id="booking_form">
                                 @csrf
                                 <div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
                                     <label style="color:white; font-size:18px; top:30px;">Reserve treatment:</label>
                                     <div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
-                                        <div><input type="text" name="date_from" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
-                                        <div><input type="text" name="date_to" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
-
+                                        <div><input type="text" name="time_date_from" class=" booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
+                                        <div><input type="text" name="time_date_to" class=" booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
+                                        <input id="datetimepicker" type="text" >
                                         <div>
-                                            <select class="form-control" name="spa_id" style="border-width:2px; width: 190%; height: 54px; background-color: grey; color:white;">
+                                            <select class="form-control" name="spa_treatment_id" style="border-width:2px; width: 190%; height: 54px; background-color: grey; color:white;">
                                                 <option value="">Spa</option>
                                                 @foreach ($spas as $spa)
                                                     <option value="{{ $spa->id }}">{{$spa->title}}</option>

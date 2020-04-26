@@ -55,6 +55,12 @@
     </li>
 
     <li class="nav-item active">
+        <a class="nav-link" href="{{ route('/cms/spa_reservations/index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Spa Reservations</span></a>
+    </li>
+
+    <li class="nav-item active">
         <a class="nav-link" href="{{ route('/cms/contact_us/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Contact us Messages</span></a>

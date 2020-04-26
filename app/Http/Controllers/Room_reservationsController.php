@@ -49,8 +49,4 @@ class Room_reservationsController extends Controller
 
 
 
-    //tuka treba funkcija prvo da se napravi joinot shto treba, i potoa funkcijata da mozhe da zapishuva vo tabelata za rezervacii, STATUS
-
-
-
 }

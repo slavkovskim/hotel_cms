@@ -85,7 +85,7 @@ Route::get('/', 'IndexController@index')->name('homepage');
     //Rooms  RESERVARTION FOR ROOMS!!!!! FRONT END
 
     Route::post('/reservation', 'ReservationsController@reservationRoom')->name('reservation');
-Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_reservation');
+    Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_reservation');
 
 
 
@@ -97,8 +97,8 @@ Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_re
 
     Route::get('/spa', 'Spa_frontendController@indexSpaFe')->name('spas');
 
-//    Route::post('/spa_reservations', '')
-
+    Route::post('/spa_reservations', 'Spa_reservationsController@reservationSpa')->name('spa_reservations');
+    Route::get('/spa_treatment_reservations' , 'Spa_reservationsController@index')->name('spa_treatment_reservations');
 
 
 //});
@@ -165,9 +165,18 @@ Route::get('/cms/room_reservations/changestatus/{id_old_status}/{id}', 'Room_res
 //    Route::get('/cms/spa/create_spa', 'SpaController@create')->name('/cms/spa/create_spa');
     Route::post('/cms/spa/store_spa', 'SpaController@store')->name('/cms/spa/store_spa');
     Route::get('/cms/spa/delete_spa/{id}', 'SpaController@destroy')->name('/cms/spa/delete_spa');
-
-//    Route::get('/cms/spa/show_spa_employees', 'SpaController@spa_employee')->name('/cms/spa/show_spa_employee');
     Route::get('/cms/spa/create_spa', 'SpaController@spa_employee')->name('/cms/spa/create_spa'); //works like this
+
+
+//Spa reservations
+Route::get('/cms/spa_reservations/index',  'Spa_reservations2Controller@index')->name('/cms/spa_reservations/index');
+Route::get('/cms/spa_reservations/changestatus/{id_old_status}/{id}', 'Spa_reservations2Controller@spaReservationStatusChange')->name('/cms/spa_reservations/changestatus');
+
+
+
+
+
+
 
 //});
 
