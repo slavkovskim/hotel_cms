@@ -15,6 +15,8 @@ class Spa_reservationsController extends Controller
     public function index()
     {
         $spa_reservations = Spa_reservations::all();
+
+        return view('spa_reservations');
     }
 
     /**

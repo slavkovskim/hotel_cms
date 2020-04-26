@@ -87,7 +87,7 @@ Route::get('/', 'IndexController@index')->name('homepage');
     Route::post('/reservation', 'ReservationsController@reservationRoom')->name('reservation');
 Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_reservation');
 
-        //   Route::post('/cms/clients/update_client', 'ClientsController@update')->name('/cms/clients/update_client');
+
 
 
 //Spa reservation front end
@@ -96,6 +96,10 @@ Route::get('/hotel_reservation', 'ReservationsController@index')->name('hotel_re
     });
 
     Route::get('/spa', 'Spa_frontendController@indexSpaFe')->name('spas');
+
+//    Route::post('/spa_reservations', '')
+
+
 
 //});
 
@@ -150,6 +154,9 @@ Auth::routes(); //if I put them inside middleware login is broken
     Route::get('/cms/rooms/gallery/{id}', 'RoomsController@gallery')->name('/cms/rooms/gallery');
     Route::get('/cms/rooms/delete_gallery_image/{id}/{id_room}', 'RoomsController@delete_gallery_image')->name('/cms/rooms/delete_gallery_image');
 
+//Room reservations
+Route::get('/cms/room_reservations/index', 'Room_reservationsController@index')->name('/cms/room_reservations/index');
+Route::get('/cms/room_reservations/changestatus/{id_old_status}/{id}', 'Room_reservationsController@reservationStatusChange')->name('/cms/room_reservations/changestatus');
 
 //spa
     Route::get('/cms/spa/index', 'SpaController@index')->name('/cms/spa/index');

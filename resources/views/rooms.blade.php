@@ -32,8 +32,12 @@
 
 									</div>
 {{--									<div><button class="booking_button trans_200" >Book Now</button></div>--}}
-									<div><button class="booking_button trans_200" type="submit" >Book Now</button></div>
 
+									@if (Auth::check())
+										<div><button class="booking_button trans_200" type="submit" >Book Now</button></div>
+									@else
+										<div><button class="booking_button trans_200" style="background-color: red;" type="" >Sign in first!</button></div>
+									@endif
 								</div>
                             </form>
                         </div>

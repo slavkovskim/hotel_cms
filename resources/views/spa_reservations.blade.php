@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col">
                     <div class="home_content text-center">
-                        <div class="home_title">Reservation request made!</div>
+                        <div class="home_title">Spa reservation request made!</div>
                         <h3 style="color:white;">We are working on your request, you will be noted within 4-8 hours.</h3>
                     </div>
                 </div>

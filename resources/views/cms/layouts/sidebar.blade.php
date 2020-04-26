@@ -43,6 +43,12 @@
     </li>
 
     <li class="nav-item active">
+        <a class="nav-link" href="{{ route('/cms/room_reservations/index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Room Reservations</span></a>
+    </li>
+
+    <li class="nav-item active">
         <a class="nav-link" href="{{ route('/cms/spa/index') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Spa</span></a>
