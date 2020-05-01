@@ -175,6 +175,7 @@ class SpaController extends Controller
      */
     public function destroy($id)
     {
+        DB::table('spa_reservations')->where('spa_treatment_id', '=', $id)->delete();
         DB::table('spa_treatments')->where('id', '=', $id)->delete();
         return redirect('/cms/spa/index');
     }

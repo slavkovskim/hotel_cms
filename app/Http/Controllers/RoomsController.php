@@ -174,6 +174,7 @@ class RoomsController extends Controller
     {
 
         DB::table('rooms_gallery')->where('id_room', '=', $id)->delete();
+        DB::table('hotel_reservations')->where('room_id', '=', $id)->delete();
         DB::table('rooms')->where('id', '=', $id)->delete();
 
 

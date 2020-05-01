@@ -27,15 +27,14 @@
             <h1>Contact messages</h1>
 
            @foreach($contact_uss as $contact_us)
-   <div class="boxed" style="border: 2px solid black; width:400px;">
-       <div style="border:1px solid black;">  <p>Name: {{$contact_us->name}}</p> </div>
-           <p>Subject: {{$contact_us->subject}}</p>
-           <p>Email: {{$contact_us->email}}</p>
+      <div class=" " style="border: 2px solid black; width:400px; left:10px;">
+       <div style="border:1px solid black;">  <p>Name: {{$contact_us->name}}</p> <p> Email: {{$contact_us->email}}</p> </div>
+       <div style="border:1px solid black;">  <p>Subject: {{$contact_us->subject}}</p></div>
            <p> Message: {{$contact_us->message}}</p>
 
                <br>
                @endforeach
-   </div>
+      </div>
 
 
         </div>
