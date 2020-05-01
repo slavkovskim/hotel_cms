@@ -18,7 +18,7 @@
 								<div class="d-flex flex-xl-row flex-column align-items-start justify-content-start">
 									<label style="color:white; font-size:18px; top:30px;">Reserve room:</label>
 									<div class="booking_input_container d-flex flex-row align-items-start justify-content-start flex-wrap">
-										<div><input type="text" name="date_from" class=" booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
+										<div><input type="text" name="date_from" class="datepicker booking_input booking_input_a booking_in" placeholder="Check in" required="required"></div>
 										<div><input type="text" name="date_to" class="datepicker booking_input booking_input_a booking_out" placeholder="Check out" required="required"></div>
 
 										<div>

@@ -14,6 +14,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/about_responsive.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/booking.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('styles/booking_responsive.css') }}">
+
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datetimepicker/jquery.datetimepicker.css') }}">
+
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/datetimepicker/build/jquery.datetimepicker.min.css') }}">--}}
+
 </head>
 
 <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
@@ -31,6 +37,11 @@
 <script src="{{ asset('plugins/jquery-datepicker/jquery-ui.js') }}"></script>
 <script src="{{ asset('js/about.js') }}"></script>
 <script src="{{ asset('js/booking.js') }}"></script>
+
+{{--<script src="{{ asset('plugins/datetimepicker/jquery.datetimepicker.js') }}"></script>--}}
+
+<script src="{{ asset('plugins/datetimepicker/build/jquery.datetimepicker.full.min.js') }}"></script>
+
 {{--<script type="text/javascript">--}}
 {{--    $('#datetimepicker2').datetimepicker({--}}
 {{--        format: 'dd-MM-yyyy',--}}

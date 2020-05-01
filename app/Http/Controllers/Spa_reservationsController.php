@@ -17,7 +17,7 @@ class Spa_reservationsController extends Controller
     {
         $spa_reservations = Spa_reservations::all();
 
-        return view('spa_reservations');
+        return view('spa_treatment_reservations');
     }
 
     public function reservationSpa(Request $request){
@@ -40,7 +40,7 @@ class Spa_reservationsController extends Controller
         $spa_reservations->status = '0';
         $spa_reservations->save();
 
-        return redirect('spa_reservations');
+        return redirect('spa_treatment_reservations');
 
     }
 
