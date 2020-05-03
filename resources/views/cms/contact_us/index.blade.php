@@ -25,17 +25,18 @@
 
             <!-- Begin Page Content -->
             <h1>Contact messages</h1>
-
+<div style="position:relative;">
            @foreach($contact_uss as $contact_us)
-      <div class=" " style="border: 2px solid black; width:400px; left:10px;">
+      <div class="" style="border: 2px solid black; width:400px; text-align:center; color:black;">
        <div style="border:1px solid black;">  <p>Name: {{$contact_us->name}}</p> <p> Email: {{$contact_us->email}}</p> </div>
        <div style="border:1px solid black;">  <p>Subject: {{$contact_us->subject}}</p></div>
-           <p> Message: {{$contact_us->message}}</p>
+           <p> Message: </p> <p>{{$contact_us->message}}</p>
 
                <br>
                @endforeach
       </div>
 
+</div>
 
         </div>
         <!-- End of Content Wrapper -->

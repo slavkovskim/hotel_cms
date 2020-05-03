@@ -47,9 +47,6 @@ Route::get('/', 'IndexController@index')->name('homepage');
 
 
 
-//Route::get('/adminhome', 'HomeController@index')->name('home');   ovaa e gotovata od laravel koga ke se najavi admin ama koristam drugo sto go nosi na dashboard
-
-
 
 
     Route::get('/about', function(){
