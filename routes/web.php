@@ -17,6 +17,36 @@ Route::get('/', function () {
 
 
 
+//Homepage
+
+//News front end
+Route::get('/', 'IndexController@index')->name('homepage');
+
+
+//here about us and contact
+//Contact us page
+
+Route::get('/contact', function(){
+    return view('contact');
+});
+
+Route::get('/contact', [
+    'uses' => 'Contact_usController@create'
+]);
+
+
+Route::post('/contact', [
+    'uses' => 'Contact_usController@store',
+    'as' => 'contact.store'
+]);
+
+
+Route::get('/about', function(){
+    return view('about');
+});
+Route::get('/about', 'About_usController@indexFe')->name('/about');
+
+
 //CMS panel:
 
 Route::get('/admin/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
@@ -26,12 +56,6 @@ Route::post('/admin/login', 'Auth\AdminLoginController@login')->name('admin.logi
 //Route::get('/admin', 'AdminController@index')->name('home');  bese ovaka?!?!
 
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
-//Homepage
-
-//News front end
-Route::get('/', 'IndexController@index')->name('homepage');
-
-
 
 //Route::group(['middleware' => ['users']], function() {
 
@@ -48,27 +72,6 @@ Route::get('/', 'IndexController@index')->name('homepage');
 
 
 
-
-    Route::get('/about', function(){
-        return view('about');
-    });
-    Route::get('/about', 'About_usController@indexFe')->name('/about');
-
-//Contact us page
-
-    Route::get('/contact', function(){
-        return view('contact');
-    });
-
-    Route::get('/contact', [
-        'uses' => 'Contact_usController@create'
-    ]);
-
-
-    Route::post('/contact', [
-        'uses' => 'Contact_usController@store',
-        'as' => 'contact.store'
-    ]);
 
 
 //Rooms reservation front end

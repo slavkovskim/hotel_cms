@@ -12,10 +12,10 @@ class About_usController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct()
-    {
-        $this->middleware('auth:admin');
-    }
+//    public function __construct()
+//    {
+//        $this->middleware('auth:admin');
+//    }
     public function index()
     {
         $about_us = About_us::find('1');
